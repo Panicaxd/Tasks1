@@ -1,0 +1,27 @@
+public class Solution {
+    public static void main(String[] args) {
+ for (int f = 0; f < 50000; f++) {
+     Cat cat = new Cat();
+ }
+    for (int d = 0; d < 50000; d++) {
+        Dog dog = new Dog();
+    }
+        System.gc();
+    }
+}
+
+class Cat {
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println("A Cat was destroyed");
+    }
+}
+
+class Dog {
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println("A Dog was destroyed");
+    }
+}
