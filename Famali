@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String grandpaName = reader.readLine();
+        Cat grandpa = new Cat(grandpaName);
+
+        String grandmaName = reader.readLine();
+        Cat grandma = new Cat(grandmaName);
+
+        String dadName = reader.readLine();
+        Cat dad = new Cat(dadName, null, grandpa);
+
+        String momName = reader.readLine();
+        Cat mom = new Cat(momName, grandma, null);
+
+        String sonName = reader.readLine();
+        Cat son = new Cat(sonName, mom, dad);
+
+        String daughterName = reader.readLine();
+        Cat daughter = new Cat(daughterName, mom, dad);
+
+        System.out.println(grandpa);
+        System.out.println(grandma);
+        System.out.println(dad);
+        System.out.println(mom);
+        System.out.println(son);
+        System.out.println(daughter);
+    }
+
+    static class Cat {
+        private String name;
+        private Cat mother;
+        private Cat father;
+
+        public Cat(String name) {
+            this.name = name;
+        }
+
+        public Cat(String name, Cat mother, Cat father) {
+            this.name = name;
+            this.mother = mother;
+            this.father = father;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public Cat getMother() {
+            return mother;
+        }
+
+        public Cat getFather() {
+            return father;
+        }
+
+        @Override
+        public String toString() {
+            String motherName = (mother != null) ? mother.getName() : "no mother";
+            String fatherName = (father != null) ? father.getName() : "no father";
+            return "The cat's name is " + name + ", mother is " + motherName + ", father is " + fatherName;
+        }
+    }
+
+}
