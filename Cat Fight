@@ -1,0 +1,50 @@
+public class Cat {
+    public int age;
+    public int weight;
+    public int strength;
+
+    public Cat() {
+    }
+
+    public boolean fight(Cat anotherCat) {
+        int f = 0;
+        int ss = 0;
+        if (this.age > anotherCat.age)
+            f++;
+        else ss++;
+        if (this.strength > anotherCat.strength)
+            f++;
+        else ss++;
+        if (this.weight > anotherCat.weight)
+            f++;
+        else ss++;
+        if (f > ss) {
+            return true;
+        } else if (f == ss) {
+            return false;
+        }
+        else if (f < ss) {
+            return false;
+        }
+        return false;
+    }
+
+    public static void main(String[] args){
+        Cat cat1 = new Cat();
+        cat1.age = 1;
+        cat1.weight =1;
+        cat1.strength = 1;
+
+        Cat cat2 = new Cat();
+        cat2.age = 1;
+        cat2.weight = 2;
+        cat2.strength = 1;
+
+        if (cat1.fight(cat2)) {
+            System.out.println("Первый кот победил, а второй проиграл");
+        }
+        else
+            System.out.println("Второй кот победил, а первый проиграл");
+    }
+
+}
