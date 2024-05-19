@@ -1,0 +1,28 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Введите кол-во чисел которое вы хотите ввести :");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(reader.readLine());
+        if (N <= 0) {
+         }
+        else {
+            System.out.println("Теперь вводите числа:");
+            int maximum = Integer.MIN_VALUE;
+        if (N > 0) {
+            for (int i = 0; i < N; i++) {
+                int number = Integer.parseInt(reader.readLine());
+                if (number > maximum) {
+                    maximum = number;
+                }
+            }
+            System.out.println("Наибольшее число :");
+            System.out.println(maximum);
+        } else {
+        }
+        }
+
+    }
+}
